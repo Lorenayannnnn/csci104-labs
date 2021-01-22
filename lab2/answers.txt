@@ -1,0 +1,27 @@
+Problem 1:
+    On line 249:
+    The new Warrior object was assigned to invaders[invaderRow][invaderRow].
+    The column indice was wrongly set, which should be invaderCol instead of invaderRow.
+    Therefore, by changing line 249 from invaders[invaderRow][invaderRow] to invaders[invaderRow][invaderCol], 
+    the SegFault issue would be solved, as the new Warrior object will be assigned to the correct position. 
+
+Problem 2:
+    On line 27: 
+    There was a semicolon at the end, which may caused the program to inappropriately process the returning statement below it.
+    This problem is solved by removing the semicolon. 
+
+Problem 3:
+    On line 62:
+    For the variable colIdx of this inner for-loop, its value was never incremented and thus would never reach its upper limit boundary, causing the infinite loop.
+    This problem is solved by adding colIdx++ to the checking-condition part of this inner for-loop. 
+
+Problem 4:
+    On line 218:
+    The parameter of numbers of row and column for invaders are passed with m and n correspondingly, which are wrong.
+    DeallocateWarriors(invaders, m, n) should be changed to DeallocateWarriors(invaders, n, m); (Swapping m and n)
+
+Problem 5:
+    On line 113 and 117:
+    The if conditions on these 2 lines were wrong. For line 113 originally, protectorLost is changed to true when invader's power is smaller than protector's power, in which case protector should kill the invader.
+    Similarly, on line 117, the invader is killed when protector's power is smaller than invader's power.
+    Therefore, the if conditions on these 2 lines should be swapped in order to make the program logically correct. 

@@ -1,0 +1,13 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "locale": "cpp",
+        "sstream": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "ostream": "cpp"
+    }
+}

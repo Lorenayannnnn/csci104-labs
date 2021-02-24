@@ -25,3 +25,4 @@ $(BIN_DIR)/pokemon.o: $(SRC_DIR)/pokemon.cpp $(LIB_DIR)/pokemon.h
 .PHONY: clean
 clean:
 	rm -rf $(BIN_DIR)
+	-@echo "--- All Clean!---"

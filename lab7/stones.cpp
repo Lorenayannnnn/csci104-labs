@@ -3,6 +3,7 @@
 using namespace std;
 
 int lastStoneWeight(vector<int>& stones) {
+    // Max heap
     priority_queue<int, vector<int>, less<int> > pq;
     for (unsigned int i = 0; i < stones.size(); i++) {
         pq.push(stones[i]);

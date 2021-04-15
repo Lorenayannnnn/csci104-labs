@@ -51,10 +51,6 @@ void HashTable::insert(string str) {
 			string* temp = new string(str);
 			data[hash] = temp;
 			break;
-		} else if (*data[hash] == "-1") {
-			delete data[hash];
-			data[hash] = new string(str);
-			break;
 		}else if(*data[hash] == str) break;
 		else {
 			//cout << str << " collided with: " << *data[hash] << endl;
@@ -87,12 +83,21 @@ void HashTable::remove(string str) {
 	unsigned hash = hash_str(str.c_str());
 	hash = hash % size;
 	for (int i = 0; i < size; i++) {
-		if(data[hash] == nullptr) return;
-		if(*data[hash] == str) {
+		if (data[hash] == nullptr) return;
+		else if (*data[hash] == str) {
 			delete data[hash];
-			data[hash] = new string("-1");
+			data[hash] = nullptr;
+			for (int j = 1; j < size; j++) {
+				if (data[(hash+j)%size] == nullptr) return;
+				else {
+					string temp = *data[(hash+j)%size];
+					delete data[(hash+j)%size];
+					data[(hash+j)%size] = nullptr;
+					insert(temp);
+				}
+			}
 			return;
-		};
+		}
 		hash++;
 		hash = hash % size;
 	}
